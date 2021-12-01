@@ -15,7 +15,7 @@ def train():
     LR = 0.01
 
     # DataLoader
-    train_dataset = CIFAR10(root='./dataset_cifar10', transform=transforms.ToTensor(), train=True, download=False)
+    train_dataset = CIFAR10(root='./dataset_cifar10', transform=transforms.ToTensor(), train=True, download=True)
     train_loader = torch.utils.data.DataLoader(dataset=train_dataset,
                                                batch_size=batch_size,
                                                shuffle=True)
