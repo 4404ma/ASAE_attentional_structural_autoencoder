@@ -31,7 +31,6 @@ def train():
         print('\nEpoch: %d' % (epoch + 1))
         model.train()
         sum_loss = 0.0
-        # correct = 0.0
         total = 0.0
         for i, (images, _) in enumerate(train_loader):
             # prepare dataset
@@ -46,11 +45,8 @@ def train():
             loss.backward()
             optimizer.step()
 
-            # print ac & loss in each batch
+            # print loss in each 200th batch
             sum_loss += loss.item()
-            # _, predicted = torch.max(outputs.data, 1)
-            # total += labels.size(0)
-            # correct += predicted.eq(labels.data).cpu().sum()
             if i % 200 == 199:
                 pic = outputs.squeeze(0)
                 pic = transforms.ToPILImage()(pic[0])
